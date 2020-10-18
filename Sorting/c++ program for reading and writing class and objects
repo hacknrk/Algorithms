@@ -1,0 +1,95 @@
+// wap a program for student details bu using classes and objects
+
+#include<iostream>
+#include<conio.h
+#include<stdlib.h>
+#include<fstream.h>
+
+class Student {
+                    char name[20];
+                    char grade;
+                    float marks;
+public:
+      void getdata();
+      void putdata();
+};
+void Student::getdata()
+{
+cout<<"enter the name\n";
+cin>>name;
+cout<<enter the grade\n";
+cin>>grade;
+cout<<"enter the marks\n;
+cin>>marks;
+}
+
+void Student::putdata();
+{
+cout<<"The name is: "<<name;
+cout<<"The grade is: "<<grade;
+cout<<"The marks is: "<<marks;
+}
+
+int main()
+{
+
+system("cls")
+int num;
+cout<<"enter the number of student of whom you want to fill the data\n";
+cin>>num;
+Student s[num];
+fstream filin;
+filin.open("Std.dat",ios::in|ios::out);
+if(!filin)
+{
+cout<<"Cannot open the file!!!\n";
+return 1;
+}
+cout<<"enter the details  of "<<num<<"students\n";
+
+for(int i=0; i<num; i++)
+{
+num[i].getdata();
+filin.write((char*)& num[i], sizeof(num[i]);
+}
+filin.seekg(0);
+
+cout<<"The content of student data is as given below\n";
+for(int i=0; i<num; i++)
+{
+
+filin.read((char*)& num[i], sizeof(num[i]);
+num[i].getdata();
+}
+filin.close();
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
